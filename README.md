@@ -1,58 +1,209 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🌱 AgriGest
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+AgriGest est une application web développée avec **Laravel** permettant de gérer les parcelles d'une exploitation agricole. Elle facilite le suivi des cultures grâce à une interface simple permettant d'ajouter, consulter, modifier et supprimer des parcelles.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📖 Description
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Cette application a été réalisée dans le cadre d'un projet de formation afin de mettre en pratique les fonctionnalités essentielles de Laravel :
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Architecture MVC
+- Eloquent ORM
+- Migrations
+- Factories & Seeders
+- Validation des formulaires
+- Vues Blade
+- CRUD complet
 
-## Learning Laravel
+L'objectif est de centraliser les informations des parcelles agricoles pour simplifier leur gestion.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ✨ Fonctionnalités
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+- 📋 Afficher la liste des parcelles
+- 🔍 Consulter les détails d'une parcelle
+- ➕ Ajouter une nouvelle parcelle
+- ✏️ Modifier une parcelle
+- 🗑️ Supprimer une parcelle
+- 🌱 Générer des données de test avec Factory & Seeder
+- ✅ Validation des formulaires
 
-## Agentic Development
+---
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## 🛠️ Technologies utilisées
 
-```bash
-composer require laravel/boost --dev
+- Laravel
+- PHP 8+
+- MySQL
+- Blade
+- Bootstrap
+- Eloquent ORM
+- Faker
 
-php artisan boost:install
+---
+
+## 📂 Structure du projet
+
+```
+app/
+├── Http/
+│   └── Controllers/
+├── Models/
+database/
+├── factories/
+├── migrations/
+├── seeders/
+resources/
+├── views/
+routes/
+└── web.php
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
 
-## Contributing
+## 🗄️ Base de données
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Table : `parcelles`
 
-## Code of Conduct
+| Champ | Type |
+|--------|------|
+| id | bigint |
+| nom | string |
+| culture | string |
+| superficie | decimal |
+| date_plantation | date |
+| statut | enum |
+| created_at | timestamp |
+| updated_at | timestamp |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Valeurs possibles du statut
 
-## Security Vulnerabilities
+- En culture
+- Récoltée
+- En jachère
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## ⚙️ Installation
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 1. Cloner le projet
+
+```bash
+git clone https://github.com/aiga-youcan/AgriGest-.git
+```
+
+### 2. Accéder au dossier
+
+```bash
+cd AgriGest-
+```
+
+### 3. Installer les dépendances
+
+```bash
+composer install
+```
+
+### 4. Copier le fichier d'environnement
+
+```bash
+cp .env.example .env
+```
+
+### 5. Générer la clé
+
+```bash
+php artisan key:generate
+```
+
+### 6. Configurer la base de données
+
+Modifier le fichier `.env`
+
+```
+DB_DATABASE=agrigest
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 7. Exécuter les migrations
+
+```bash
+php artisan migrate
+```
+
+### 8. Générer les données de test
+
+```bash
+php artisan db:seed
+```
+
+Ou
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+### 9. Lancer le serveur
+
+```bash
+php artisan serve
+```
+
+Puis ouvrir :
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## 📸 Fonctionnalités principales
+
+- Liste des parcelles
+- Création d'une parcelle
+- Modification d'une parcelle
+- Suppression d'une parcelle
+- Consultation détaillée
+- Validation des formulaires
+- Données de démonstration
+
+---
+
+## 📌 User Stories
+
+- ✔️ Consulter une parcelle
+- ✔️ Ajouter une parcelle
+- ✔️ Modifier une parcelle
+- ✔️ Supprimer une parcelle
+- ✔️ Lister toutes les parcelles
+- ✔️ Générer des données de test
+
+---
+
+## 📁 Architecture Laravel utilisée
+
+- MVC
+- Eloquent ORM
+- Blade Templates
+- Migrations
+- Factories
+- Seeders
+- Resource Controllers
+- Validation
+
+---
+
+## 👨‍💻 Auteur
+
+**Nom :** Rida SABRAR
+
+Projet réalisé dans le cadre de la formation **Développeur Web  )**.
+
+---
+
+## 📄 Licence
+
+Projet pédagogique réalisé uniquement à des fins d'apprentissage.
